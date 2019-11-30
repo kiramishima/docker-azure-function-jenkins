@@ -9,6 +9,7 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Building Docker Image'
+        buildApp()
       }
     }
 
@@ -17,7 +18,7 @@ pipeline {
         stage('Deploy') {
           steps {
             sh 'echo "Deploying"'
-            buildApp()
+            deploy('dev')
           }
         }
 
